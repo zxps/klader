@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ ! -f target/appassembler/bin/klader-tool ]; then
+    echo ""
+    echo "First, you need to compile the source."
+    echo ""
+    echo "Use 'mvn package' for that."
+    echo ""
+    exit 1
+fi
+
+if [ $# -eq 0 ]; then
+    target/appassembler/bin/klader-tool -h
+else
+    target/appassembler/bin/klader-tool "$@"
+fi
